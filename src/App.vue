@@ -3,6 +3,7 @@
   <div id="app">
     <book-appointment></book-appointment>
     <container-menu></container-menu>
+    <router-view></router-view>
   </div>
 </template>
 

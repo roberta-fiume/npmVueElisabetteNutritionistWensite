@@ -1,6 +1,7 @@
 <template>
         <ul id="ul-menu">
-            <li v-for="voice in voices" id="listMenu"><p class="list-text">{{voice}}</p></li>
+            <li id="listMenu"><router-link to="/"><p class="list-text">Home</p></router-link></li>
+            <li id="listMenu"><router-link to="/doTest"><p class="list-text">Fa' il tuo test</p></router-link></li>
         </ul>
 </template>
 
@@ -8,7 +9,7 @@
 export default {
    data() {
        return {
-       voices: ["Home","Chi sono", "Come posso aiutarti", "Perché  effettuare l'analisi impedenziometrica della composizione corporea?", "Fa' il tuo test"] 
+       
       }
    }
 }
