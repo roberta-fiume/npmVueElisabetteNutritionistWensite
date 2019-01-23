@@ -15,10 +15,7 @@
 
   export default {
     name: 'App',
-    data() {
-      
-    },
-
+    
     components: {
       "book-appointment": BookAppointment,
       "container-menu": Menu

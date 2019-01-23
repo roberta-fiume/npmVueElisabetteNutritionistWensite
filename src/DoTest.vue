@@ -4,17 +4,11 @@
     </div>  
 </template>
 
-<script>
-export default {
-    data() {
-
-    }
-}
-</script>
 
 <style>
     #title-test {
         color: white;
+        text-decoration: none;
     }
 
 </style>
