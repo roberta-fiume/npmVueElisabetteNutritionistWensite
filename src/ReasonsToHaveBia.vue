@@ -6,7 +6,7 @@
 
 <style>
     #biaTitle {
-        color: white;
+        color: green;
     }
 
 </style>

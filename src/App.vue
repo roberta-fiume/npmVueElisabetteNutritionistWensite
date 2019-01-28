@@ -1,9 +1,11 @@
 
 <template>
-  <div id="app">
-    <book-appointment></book-appointment>
-    <container-menu></container-menu>
-    <router-view></router-view>
+  <div id="myRoot">
+        <router-view></router-view>
+        <div id="app">
+          <book-appointment></book-appointment>
+           <container-menu></container-menu>
+        </div>
   </div>
 </template>
 
@@ -15,15 +17,18 @@
 
   export default {
     name: 'App',
-    
+
+
     components: {
       "book-appointment": BookAppointment,
       "container-menu": Menu
     }
+
   }
 </script>
 
 <style>
+
   #app {
     display: flex;
     justify-content: space-around;
@@ -34,5 +39,6 @@
     height: 800px;
     margin: 0 auto
   }
- 
+
+  
 </style>

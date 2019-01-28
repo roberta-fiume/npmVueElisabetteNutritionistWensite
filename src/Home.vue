@@ -10,7 +10,7 @@
 <style>
 
     #title {
-        color: white;
+        color: green;
     }
 
 </style>

@@ -6,7 +6,7 @@
 
 <style>
  #titleHelp {
-     color: white;
+     color: green;
  }
 </style>
 
