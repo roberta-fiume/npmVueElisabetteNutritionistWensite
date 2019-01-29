@@ -6,13 +6,20 @@
 
 
 <style>
+
+    body {
+        background-image: url('../src/assets/img/test-img.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
     #title-test {
-        color: green;
+        color: rgb(219, 189, 14);
         text-decoration: none;
     }
 
     #divImg {
-        background-image: url('../src/assets/img/test-img.jpg')
+        /*background-image: url('../src/assets/img/test-img.jpg');*/
     }
   
 
