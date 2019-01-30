@@ -41,7 +41,6 @@ export default {
     height: 400px;
     width: 300px;
     border-radius: 1px;
-   
 }
 
 
