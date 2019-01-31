@@ -61,6 +61,8 @@
     background-color: lightgreen;
     height: 800px;
     width: 300px;
+    margin-left: 200px;
+    margin-right: -250px;
   }
 
   
