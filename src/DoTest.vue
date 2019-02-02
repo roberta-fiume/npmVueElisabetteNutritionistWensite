@@ -10,7 +10,7 @@
         </div>
         
         <div id="div-start-test">
-            <router-link to="/Test" class="routerLink">
+            <router-link to="/test/0" class="routerLink">
                 <p class="list-text">INIZIA IL TEST</p>
             </router-link>
         </div>

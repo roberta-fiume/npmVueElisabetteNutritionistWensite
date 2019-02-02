@@ -1,9 +1,10 @@
 <template>
     <div>
-       <div class="question-and-amswers-container">
-           <div class="question-box">
+       <div class="question-and-answers-container">
+           <!-- <div class="question-box">
                 <h1> 1) Al mattino mangio frequentemente brioche e cappuccino al bar. </h1>
-            </div>
+            </div> -->
+            <question :questionNumber="$route.params.number"></question>
             <div class="div-select-answer">
                     <div class="yes-box">
                         <input type="radio" class="yes" value="Si" v-model="answers">
@@ -20,7 +21,7 @@
                 <h2>Your answer is: {{answers}}</h2>
             </div>
        </div>
-        <button>NEXT</button>
+        <button v-on:click="navigateToNextQuestion()">NEXT</button>
        </div>
 
        </div>
@@ -28,13 +29,29 @@
 </template>
 
  <script>
- export default {
-     data() {
-         return {
-             answers: ""
+ import Question from './Question.vue';
+ 
+    export default {
+        data() {
+            return {
+                answers: ""
+            }
+        },
+
+        methods: {
+            navigateToNextQuestion() {
+                let currentQuestionNumber = this.$route.params.number;
+                currentQuestionNumber++;
+                console.log("on click 1111111", currentQuestionNumber);
+                this.$router.push('/test/' + currentQuestionNumber);
+                console.log("on click 2222222", currentQuestionNumber);
+            }
+        },
+
+        components: {
+            "question": Question
         }
     }
- }
  </script>
  
 <style>
@@ -44,7 +61,7 @@
         background-repeat: no-repeat;
         background-attachment: fixed;  
     }
-    .question-and-amswers-container{
+    .question-and-answers-container{
         display: flex;
         flex-direction: column;
         width: 900px;
