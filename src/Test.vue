@@ -7,12 +7,12 @@
             <question :questionNumber="$route.params.number"></question>
             <div class="div-select-answer">
                     <div class="yes-box">
-                        <input type="radio" class="yes" value="Si" v-model="answers">
-                        <label for="yes"> Si </label>
+                        <input type="radio" class="yes" value="Si" v-model="answers" v-on:click="getValueYesFromCheckBox($event)">
+                        <label for="yes" @click.prevent="uncheck(value)"> Si </label>
                         <br>
                     </div>
                     <div class="no-box">
-                        <input type="radio" class="no" value="No" v-model="answers">
+                        <input type="radio" class="no" value="No" v-model="answers" v-on:click="getValueNoFromCheckBox($event)">
                         <label for="no"> No </label>
                         <br>  
                     </div>   
@@ -20,9 +20,14 @@
             <div class="final-answer"> 
                 <h2>Your answer is: {{answers}}</h2>
             </div>
+        <div>
+        <button v-on:click="navigateToPreviousQuestion()">PREVIOUS</button>
        </div>
-        <button v-on:click="navigateToNextQuestion()">NEXT</button>
+       <div>
+        <button v-on:click="navigateToNextQuestion()" >NEXT</button>
        </div>
+
+      
 
        </div>
     </div>
@@ -42,11 +47,28 @@
             navigateToNextQuestion() {
                 let currentQuestionNumber = this.$route.params.number;
                 currentQuestionNumber++;
-                console.log("on click 1111111", currentQuestionNumber);
                 this.$router.push('/test/' + currentQuestionNumber);
-                console.log("on click 2222222", currentQuestionNumber);
-            }
-        },
+            },
+           navigateToPreviousQuestion() {
+               console.log("Hello!");
+               let currentQuestionNumber = this.$route.params.number;
+               currentQuestionNumber--;
+               console.log(currentQuestionNumber);
+               this.$router.go(-1);
+           },
+           getValueYesFromCheckBox(valueYes) {
+               console.log("Heyyyy");
+               if (valueYes.target.checked) {
+                console.log(valueYes.target.value);
+               }
+           },
+             getValueNoFromCheckBox(valueNo) {
+               console.log("Heyyyy");
+               if (valueNo.target.checked) {
+                console.log(valueNo.target.value);
+               }
+           },
+        }, 
 
         components: {
             "question": Question
