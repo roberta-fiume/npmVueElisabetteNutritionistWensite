@@ -1,22 +1,9 @@
 <template>
     <div>
        <div class="question-and-answers-container">
-           <!-- <div class="question-box">
-                <h1> 1) Al mattino mangio frequentemente brioche e cappuccino al bar. </h1>
-            </div> -->
             <question :questionNumber="$route.params.number"></question>
-            <div class="div-select-answer">
-                    <div class="yes-box">
-                        <input type="radio" class="yes" value="Si" v-model="answers" v-on:click="getValueYesFromCheckBox($event)">
-                        <label for="yes" @click.prevent="uncheck(value)"> Si </label>
-                        <br>
-                    </div>
-                    <div class="no-box">
-                        <input type="radio" class="no" value="No" v-model="answers" v-on:click="getValueNoFromCheckBox($event)">
-                        <label for="no"> No </label>
-                        <br>  
-                    </div>   
-            </div>
+            <answer :answerNumber="$route.params.number" :selectedYesAsProps="selectedYes"></answer>
+
             <div class="final-answer"> 
                 <h2>Your answer is: {{answers}}</h2>
             </div>
@@ -24,7 +11,7 @@
         <button v-on:click="navigateToPreviousQuestion()">PREVIOUS</button>
        </div>
        <div>
-        <button v-on:click="navigateToNextQuestion()" >NEXT</button>
+        <button v-on:click="navigateToNextQuestion(), uncheckAll()">NEXT</button>
        </div>
 
       
@@ -35,11 +22,13 @@
 
  <script>
  import Question from './Question.vue';
+ import Answer from './Answer.vue'
  
     export default {
         data() {
             return {
-                answers: ""
+                answers: "",
+                selectedYes: "Si"
             }
         },
 
@@ -56,22 +45,26 @@
                console.log(currentQuestionNumber);
                this.$router.go(-1);
            },
-           getValueYesFromCheckBox(valueYes) {
-               console.log("Heyyyy");
-               if (valueYes.target.checked) {
-                console.log(valueYes.target.value);
-               }
-           },
+
+           uncheckAll() {
+               console.log("I am UNCHECKED", this.selectedYes);
+                    this.selectedYes = false;
+                }
+            },
+           
+           /*
              getValueNoFromCheckBox(valueNo) {
                console.log("Heyyyy");
                if (valueNo.target.checked) {
                 console.log(valueNo.target.value);
                }
            },
-        }, 
+           */
+        
 
         components: {
-            "question": Question
+            "question": Question,
+            "answer" : Answer
         }
     }
  </script>

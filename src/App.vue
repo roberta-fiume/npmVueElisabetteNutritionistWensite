@@ -4,7 +4,7 @@
         <router-view></router-view>
         <div class="boxMenuAndBookAppoint">
           <book-appointment></book-appointment>
-           <container-menu></container-menu>
+          <container-menu></container-menu>
         </div>
   </div>
 </template>

@@ -14,5 +14,5 @@ export const routes = [
     { path: '/whoIam', component: WhoIam},
     { path: '/reasonsToHaveBia', component: ReasonsToHaveBia},
     { path: '/howIcanHelpYou', component: HowIcanHelpYou},
-    { path: '/test/:number', component: Test}
+    { path: '/test/:number', component: Test},
 ];
