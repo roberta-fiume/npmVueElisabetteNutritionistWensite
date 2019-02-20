@@ -47,8 +47,9 @@
            },
 
            uncheckAll() {
-               console.log("I am UNCHECKED", this.selectedYes);
-                    this.selectedYes = false;
+               console.log("I UNCHECK ALL", this.selectedYes);
+                    return this.selectedYes = false;
+                
                 }
             },
            
