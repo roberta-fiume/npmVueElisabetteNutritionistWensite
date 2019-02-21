@@ -1,13 +1,19 @@
 <template>
-        <div class="div-select-answer">
+    <div>
+        <div class="div-select-answer" v-for="(val, key) in answers">
+            <input type="radio"  class="yes" :value="val" v-model="changedValue" :id="val">
+                <label :for="val" >{{val}} </label>
+
+            <!--
                 <input type="radio"  class="yes" value="Si" v-model="answers.positive" v-on:click="getValueYesFromRadioBox($event)">
                 <label for="value" > {{ getAnswerYes()}} </label>
                 <br>
             
                 <input type="radio" class="no" value="No" v-model="answers.negative" v-on:click="getValueNoFromRadioBox($event)">
                 <label for="no"> {{ getAnswerNo()}} </label>
-        
+            -->
         </div>
+    </div>
 </template>
 
 <script>
@@ -20,6 +26,10 @@
 
         data() {
             return {
+                answers: ["Si", "No"],
+                changedValue: this.selectedYes
+
+            /*
                 answers: [
                     {positive: "Si1", negative: "No1"},
                     {positive: "Si2", negative: "No2"},
@@ -31,10 +41,24 @@
                     {positive: "Si8", negative: "No8"},
                     {positive: "Si9", negative: "No9"}
                 ], 
+                */
             }
+            
         },
 
         methods: {
+
+            getAnswerYes() {
+                console.log("I am a DYNAMIC component:", this.$data.answers[this.answerNumber].positive)
+                return this.$data.answers[0].this.answerNumber;
+            },
+            getAnswerNo() {
+                console.log("I am a DYNAMIC component:", this.$data.answers[this.answerNumber].negative);
+                return this.$data.answers[this.answerNumber].negative;
+            }
+
+
+            /*
             getAnswerYes() {
                 console.log("I am a DYNAMIC component:", this.$data.answers[this.answerNumber].positive);
                 return this.$data.answers[this.answerNumber].positive;
@@ -61,7 +85,12 @@
                 console.log("I AM CHECKED, MY VALUE IS:",valueNo.target.value);
                }
             }
+
+            */
+        },
+
+        computed: {
         }
-          
+        
     }
  </script>

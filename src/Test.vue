@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
        <div class="question-and-answers-container">
             <question :questionNumber="$route.params.number"></question>
             <answer :answerNumber="$route.params.number" :selectedYesAsProps="selectedYes"></answer>
@@ -16,7 +16,7 @@
 
       
 
-       </div>
+        </div>
     </div>
 </template>
 
@@ -49,7 +49,6 @@
            uncheckAll() {
                console.log("I UNCHECK ALL", this.selectedYes);
                     return this.selectedYes = false;
-                
                 }
             },
            
@@ -61,6 +60,8 @@
                }
            },
            */
+
+          /*           v-model="selectedYes" */
         
 
         components: {
