@@ -1,96 +1,53 @@
 <template>
     <div>
-        <div class="div-select-answer" v-for="(val, key) in answers">
-            <input type="radio"  class="yes" :value="val" v-model="changedValue" :id="val">
-                <label :for="val" >{{val}} </label>
-
-            <!--
-                <input type="radio"  class="yes" value="Si" v-model="answers.positive" v-on:click="getValueYesFromRadioBox($event)">
-                <label for="value" > {{ getAnswerYes()}} </label>
-                <br>
-            
-                <input type="radio" class="no" value="No" v-model="answers.negative" v-on:click="getValueNoFromRadioBox($event)">
-                <label for="no"> {{ getAnswerNo()}} </label>
-            -->
-        </div>
+        <input type="radio"  class="yes" v-model="answer" value=true>
+        <label for="value" >  Si </label>
+        <br>
+    
+        <input type="radio" class="no" v-model="answer" value=false>
+        <label for="no">  No </label>
     </div>
 </template>
 
 <script>
+    import QuestionModel from "./QuestionModel.js"
+
      export default {
-        props: ['answerNumber', 'selectedYes'],
+
+        props: ['questionNumber', 'selectedYes'],
     
-        created() {
-            console.log("Heloooooo11111", this.answerNumber);
+        updated() {
+            console.log("updateedddddddd, answer", this.answer);
+            console.log("updateedddddddd, question number", this.questionNumber);
         },
 
+        watch: {
+            questionNumber: function(newValue, oldValue) {
+                console.log("watch activatedddddd", newValue, oldValue)
+                if(newValue > oldValue) {
+                    this.answer = null;
+                } else {
+                    this.answer = QuestionModel.data.questions[this.questionNumber].answer;
+                }
+            }, 
+            answer: function() {
+                QuestionModel.data.questions[this.questionNumber].answer = this.answer;
+                  console.log("getAnswer!!!! my answer is:", QuestionModel.data.questions[this.questionNumber]);
+            }
+        },
+        
         data() {
             return {
-                answers: ["Si", "No"],
-                changedValue: this.selectedYes
-
-            /*
-                answers: [
-                    {positive: "Si1", negative: "No1"},
-                    {positive: "Si2", negative: "No2"},
-                    {positive: "Si3", negative: "No3"},
-                    {positive: "Si4", negative: "No4"},
-                    {positive: "Si5", negative: "No5"},
-                    {positive: "Si6", negative: "No6"},
-                    {positive: "Si7", negative: "No7"},
-                    {positive: "Si8", negative: "No8"},
-                    {positive: "Si9", negative: "No9"}
-                ], 
-                */
+                answer: null,
             }
             
         },
 
-        methods: {
-
-            getAnswerYes() {
-                console.log("I am a DYNAMIC component:", this.$data.answers[this.answerNumber].positive)
-                return this.$data.answers[0].this.answerNumber;
-            },
-            getAnswerNo() {
-                console.log("I am a DYNAMIC component:", this.$data.answers[this.answerNumber].negative);
-                return this.$data.answers[this.answerNumber].negative;
-            }
-
-
-            /*
-            getAnswerYes() {
-                console.log("I am a DYNAMIC component:", this.$data.answers[this.answerNumber].positive);
-                return this.$data.answers[this.answerNumber].positive;
-            },
-            getAnswerNo() {
-                console.log("I am a DYNAMIC component:", this.$data.answers[this.answerNumber].negative);
-                return this.$data.answers[this.answerNumber].negative;
-            },
-
-            getValueYesFromRadioBox(valueYes) {
-              let valueNo = this.answers[0].negative;
-              console.log("I AM VALUE NOOOO", valueNo)
-               if (valueYes.target.checked)  {
-                  return valueNo = false;
-                console.log("I AM CHECKED, MY VALUE IS:",valueYes.target.value);
-               }
-            },
-
-            getValueNoFromRadioBox(valueNo) {
-                let valueYes = this.answers[0].positive;
-              console.log("I AM VALUE YESSSSSSSSS", valueYes)
-               if (valueNo.target.checked)  {
-                  return valueYes = false;
-                console.log("I AM CHECKED, MY VALUE IS:",valueNo.target.value);
-               }
-            }
-
-            */
-        },
-
-        computed: {
-        }
-        
+        // methods: {
+        //     getAnswer() {
+        //         QuestionModel.data.questions[this.questionNumber].answer = this.answer;
+        //         console.log("getAnswer!!!! my answer is:", QuestionModel.data.questions[this.questionNumber]);
+        //     },
+        // }  
     }
  </script>

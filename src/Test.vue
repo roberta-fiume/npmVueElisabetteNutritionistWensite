@@ -2,7 +2,7 @@
     <div >
        <div class="question-and-answers-container">
             <question :questionNumber="$route.params.number"></question>
-            <answer :answerNumber="$route.params.number" :selectedYesAsProps="selectedYes"></answer>
+            <answer :questionNumber="$route.params.number" :selectedYesAsProps="selectedYes"></answer>
 
             <div class="final-answer"> 
                 <h2>Your answer is: {{answers}}</h2>
@@ -11,7 +11,7 @@
         <button v-on:click="navigateToPreviousQuestion()">PREVIOUS</button>
        </div>
        <div>
-        <button v-on:click="navigateToNextQuestion(), uncheckAll()">NEXT</button>
+        <button v-on:click="navigateToNextQuestion(), uncheckAll(), saveAnswers($event)">NEXT</button>
        </div>
 
       
@@ -28,7 +28,8 @@
         data() {
             return {
                 answers: "",
-                selectedYes: "Si"
+                selectedYes: "Si",
+                selectedNo: "No",
             }
         },
 
@@ -46,6 +47,10 @@
                this.$router.go(-1);
            },
 
+           saveAnswers() {
+                
+           },
+     
            uncheckAll() {
                console.log("I UNCHECK ALL", this.selectedYes);
                     return this.selectedYes = false;
