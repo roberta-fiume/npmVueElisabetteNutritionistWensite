@@ -2,76 +2,67 @@
     <div >
        <div class="question-and-answers-container">
             <question :questionNumber="$route.params.number"></question>
-            <answer :questionNumber="$route.params.number" :selectedYesAsProps="selectedYes"></answer>
+            <answer :questionNumber="$route.params.number"></answer> 
 
-            <div class="final-answer"> 
-                <h2>Your answer is: {{answers}}</h2>
+             <div>
+                <button v-on:click="navigateToPreviousQuestion()">PREVIOUS</button>
             </div>
-        <div>
-        <button v-on:click="navigateToPreviousQuestion()">PREVIOUS</button>
-       </div>
-       <div>
-        <button v-on:click="navigateToNextQuestion(), uncheckAll(), saveAnswers($event)">NEXT</button>
-       </div>
-
-      
-
+     
+            <div>
+                <button v-on:click="continueWithTest()">NEXT</button>
+            </div>
         </div>
+
+   
     </div>
 </template>
 
  <script>
  import Question from './Question.vue';
- import Answer from './Answer.vue'
+ import Answer from './Answer.vue';
+ import Results from './Results.vue'
+ import QuestionModel from "./QuestionModel.js"
  
     export default {
         data() {
             return {
                 answers: "",
-                selectedYes: "Si",
-                selectedNo: "No",
             }
         },
 
         methods: {
-            navigateToNextQuestion() {
+            continueWithTest() {
                 let currentQuestionNumber = this.$route.params.number;
                 currentQuestionNumber++;
-                this.$router.push('/test/' + currentQuestionNumber);
-            },
-           navigateToPreviousQuestion() {
-               console.log("Hello!");
-               let currentQuestionNumber = this.$route.params.number;
-               currentQuestionNumber--;
-               console.log(currentQuestionNumber);
-               this.$router.go(-1);
-           },
 
-           saveAnswers() {
-                
-           },
-     
-           uncheckAll() {
-               console.log("I UNCHECK ALL", this.selectedYes);
-                    return this.selectedYes = false;
+                if(this.isTestFinished(currentQuestionNumber)) {
+                    this.goToResult();
+                } else {
+                    this.goToNextQuestion(currentQuestionNumber);
                 }
             },
-           
-           /*
-             getValueNoFromCheckBox(valueNo) {
-               console.log("Heyyyy");
-               if (valueNo.target.checked) {
-                console.log(valueNo.target.value);
-               }
+           navigateToPreviousQuestion() {
+               let currentQuestionNumber = this.$route.params.number;
+               currentQuestionNumber--;
+               this.$router.go(-1);
            },
-           */
-
-          /*           v-model="selectedYes" */
-        
-
+           isTestFinished(currentQuestionNumber) {
+               let totalNumberOfQuestions = QuestionModel.data.questions.length;
+               
+               return currentQuestionNumber === totalNumberOfQuestions; //there are no more questions left in the array!!!!!
+           },
+           goToResult() {
+               this.$router.push('/result');
+           },
+           goToNextQuestion(currentQuestionNumber) {
+               this.$router.push('/test/' + currentQuestionNumber);
+           }
+        },
+         
         components: {
             "question": Question,
-            "answer" : Answer
+            "answer" : Answer,
+            "results": Results,
         }
     }
  </script>

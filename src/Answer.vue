@@ -1,11 +1,12 @@
 <template>
-    <div>
+    <div id="answer-component">
         <input type="radio"  class="yes" v-model="answer" value=true>
-        <label for="value" >  Si </label>
+        <label for="value">  Si </label>
         <br>
     
         <input type="radio" class="no" v-model="answer" value=false>
         <label for="no">  No </label>
+
     </div>
 </template>
 
@@ -14,7 +15,7 @@
 
      export default {
 
-        props: ['questionNumber', 'selectedYes'],
+        props: ['questionNumber'],
     
         updated() {
             console.log("updateedddddddd, answer", this.answer);
@@ -43,11 +44,20 @@
             
         },
 
-        // methods: {
-        //     getAnswer() {
-        //         QuestionModel.data.questions[this.questionNumber].answer = this.answer;
-        //         console.log("getAnswer!!!! my answer is:", QuestionModel.data.questions[this.questionNumber]);
-        //     },
-        // }  
+        methods: {
+          
+        }  
     }
  </script>
+
+ <style>
+    #answer-component {
+        display: flex;
+        height: 200px;
+        width: 400px;
+        background-color: pink;
+        flex-direction: row;
+        align-items: center;
+    }
+ </style>
+ 
