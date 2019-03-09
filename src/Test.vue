@@ -41,11 +41,13 @@
                     this.goToNextQuestion(currentQuestionNumber);
                 }
             },
+
            navigateToPreviousQuestion() {
                let currentQuestionNumber = this.$route.params.number;
                currentQuestionNumber--;
                this.$router.go(-1);
            },
+
            isTestFinished(currentQuestionNumber) {
                let totalNumberOfQuestions = QuestionModel.data.questions.length;
                
@@ -54,6 +56,7 @@
            goToResult() {
                this.$router.push('/result');
            },
+           
            goToNextQuestion(currentQuestionNumber) {
                this.$router.push('/test/' + currentQuestionNumber);
            }
