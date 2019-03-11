@@ -45,7 +45,6 @@
   #app {
     display: flex;
     justify-content: flex-end;
-    /*background-image: url('../src/assets/img/strawberry.jpg');*/
     align-items: center;
     flex-wrap: wrap;
     width: 1300px;

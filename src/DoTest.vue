@@ -20,20 +20,12 @@
 
 <style>
 
-/*
-    body {
-        background-image: url('../src/assets/img/test-img.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-    }
-    */
-
     #rootTest {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        font-family: 'Dosis';
     }
 
     body {

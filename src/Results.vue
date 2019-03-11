@@ -133,26 +133,21 @@
                     return this.profile = "Alcune delle tue abitudini alimentari sono corrette MA..."
                 } else if (sumOfTrueAndFalseAnswers >= 0 && sumOfTrueAndFalseAnswers <= 6) {
                     return this.profile = "Ahimè bisogna correre ai ripari!"
-                }
-                
-            }
-            
-
-
-                  
-        }
-
-        
+                }   
+            }         
+        }  
     }
 </script>
 
 <style>
     .question-and-answers-container{
+        font-family: 'Dosis';
         display: flex;
         flex-direction: column;
         width: 900px;
         height: 600px;
-        background-color: yellow;
-        flex-direction: column
+        background-color: black;
+        opacity: 0.7;
+        color: white;
     }
 </style>

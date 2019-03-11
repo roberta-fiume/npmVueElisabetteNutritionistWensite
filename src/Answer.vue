@@ -1,10 +1,10 @@
 <template>
-    <div id="answer-component">
-        <input type="radio"  class="yes" v-model="answer" value=true>
+    <div id="answer-component" class="p-smooth">
+        <input type="radio"  class="radio-button" v-model="answer" value=true>
         <label for="value">  Si </label>
         <br>
     
-        <input type="radio" class="no" v-model="answer" value=false>
+        <input type="radio" class="radio-button" v-model="answer" value=false>
         <label for="no">  No </label>
 
     </div>
@@ -53,11 +53,20 @@
  <style>
     #answer-component {
         display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
         height: 200px;
         width: 400px;
         background-color: pink;
-        flex-direction: row;
-        align-items: center;
+        font-size: 25px;
+    }
+    
+      input[type="radio"] {
+       width: 30px;
+       height: 30px;
+       border: 2px solid yellow;
+      
     }
  </style>
  

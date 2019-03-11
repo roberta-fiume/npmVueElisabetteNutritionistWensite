@@ -1,8 +1,5 @@
 <template>
     <div class="question-box">
-        <!-- <ul>
-            <li v-for="question in questions" :question="question" :key="question.id"> {{question.text}} </li>
-        </ul> -->
         {{ getQuestion() }}
     </div>
 </template>

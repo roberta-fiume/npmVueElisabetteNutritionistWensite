@@ -1,10 +1,10 @@
 <template>
-    <div >
+    <div id="main-cointainer">
        <div class="question-and-answers-container">
-            <question :questionNumber="$route.params.number"></question>
+          <h2><question :questionNumber="$route.params.number"></question></h2>
             <answer :questionNumber="$route.params.number"></answer> 
 
-             <div>
+            <div>
                 <button v-on:click="navigateToPreviousQuestion()">PREVIOUS</button>
             </div>
      
@@ -72,6 +72,14 @@
  
 <style>
 
+    #main-cointainer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: 'Dosis';
+        
+    }
+
     body {
         background-image: url('../src/assets/img/test-img.jpg');
         background-repeat: no-repeat;
@@ -82,16 +90,22 @@
         flex-direction: column;
         width: 900px;
         height: 600px;
-        background-color: yellow;
-        flex-direction: column
+        flex-direction: column;
+        background-color: black;
+        opacity: 0.7;
+        align-items: center;
+
     }
     .question-box {
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: aquamarine;
+        color: black;
         width: 850px;
-        height: 100px;
+        height: 150px;
+        font-size: 25px;
+
     }
 
     .div-select-answer {
@@ -104,8 +118,6 @@
         background-color: pink;
     }
 
-    .yes {
-        color:blue
-    }
+  
 
 </style>
