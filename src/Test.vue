@@ -10,7 +10,7 @@
                 </div>
         
                 <div class="button">
-                    <h2 v-on:click="continueWithTest()"> NEXT << </h2>
+                    <h2 v-on:click="continueWithTest()"> NEXT >> </h2>
                 </div>
             </div>
         </div>
