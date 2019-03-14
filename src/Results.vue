@@ -1,17 +1,8 @@
 <template>
     <div class="question-and-answers-container">
         <h1>Il tuo risultato è: </h1>
-        <h2>{{resultTrueAnswers}}</h2>
-        <h2>{{resultFalseAnswers}}</h2>
-        <h2>Your result is {{result}}</h2>
-        <h2> {{profile}}</h2>
-        <!-- <ul id="example-1">
-            <li v-for="question in this.questions">
-                Question: {{ question.question }}
-                <br>
-                Answer: {{ question.answer }}
-            </li>
-        </ul> -->
+        <h2> {{result}}</h2>
+        <h2>{{profile}}</h2>
     </div>
 </template>
 

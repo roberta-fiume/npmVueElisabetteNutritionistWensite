@@ -4,12 +4,14 @@
           <h2><question :questionNumber="$route.params.number"></question></h2>
             <answer :questionNumber="$route.params.number"></answer> 
 
-            <div>
-                <button v-on:click="navigateToPreviousQuestion()">PREVIOUS</button>
-            </div>
-     
-            <div>
-                <button v-on:click="continueWithTest()">NEXT</button>
+            <div id="big-div-buttons">
+                <div class="button">
+                    <h2 v-on:click="navigateToPreviousQuestion()"> >> PREVIOUS</h2>
+                </div>
+        
+                <div class="button">
+                    <h2 v-on:click="continueWithTest()"> NEXT << </h2>
+                </div>
             </div>
         </div>
 
@@ -76,8 +78,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        font-family: 'Dosis';
-        
+        font-family: 'Dosis';  
     }
 
     body {
@@ -94,17 +95,19 @@
         background-color: black;
         opacity: 0.7;
         align-items: center;
+        border: 1px solid  #0DFF92;
 
     }
     .question-box {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: aquamarine;
-        color: black;
+        /* border: 1px solid  #0DFF92; */
+        /* background-color: aquamarine; */
+        color: white;
         width: 850px;
         height: 150px;
-        font-size: 25px;
+        font-size: 27px;
 
     }
 
@@ -116,8 +119,36 @@
         width: 600px;
         height: 150px;
         background-color: pink;
+    }  
+    
+    #big-div-buttons {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+        /* background-color: lightgreen; */
+        height:  170px;
+        width: 400px;
     }
 
+    .button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 180px;
+        height: 60px;
+        font-size: 13px;
+        font-family: 'Dosis';
+        border : 1px solid #0DFF92;
+        color: white;
+    }
+
+    .button:hover {
+        color: #0DFF92;
+        background-color: black;
+    }
   
 
 </style>
