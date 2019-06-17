@@ -6,11 +6,11 @@
 
             <div id="big-div-buttons">
                 <div class="button">
-                    <h2 v-on:click="navigateToPreviousQuestion()"> >> PREVIOUS</h2>
+                    <h2 v-on:click="navigateToPreviousQuestion()"> PREVIOUS</h2>
                 </div>
         
                 <div class="button">
-                    <h2 v-on:click="continueWithTest()"> NEXT >> </h2>
+                    <h2 v-on:click="continueWithTest()"> NEXT </h2>
                 </div>
             </div>
         </div>

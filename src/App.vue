@@ -57,7 +57,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: lightgreen;
     height: 800px;
     width: 300px;
     margin-left: 200px;
